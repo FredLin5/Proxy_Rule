@@ -1,0 +1,48 @@
+#!name = Apple Intelligence CN（Erosion 分流）
+#!desc = 国行 Siri 与普通话询问来电原因走真实 IP 直连；Apple Intelligence 的 PCC 隐私云计算、区域校验与视觉智能交给代理。由 Erosion 的 Surge 模块转写。
+#!author = Erosion（Loon 转写：FredLin5）
+#!homepage = https://github.com/FredLin5/Proxy_Rule
+#!tag = Apple,AI
+#!date = 2026-11-26
+#!system = iOS,iPadOS,macOS
+
+[General]
+skip-proxy = guzzoni.apple.com
+real-ip = guzzoni.apple.com,*.guzzoni.apple.com,*.siri.apple.com
+
+[Rule]
+# 国行 Siri 语音主网关与来电询问：真实 IP 直连
+DOMAIN-SUFFIX,guzzoni.apple.com,DIRECT
+DOMAIN-SUFFIX,siri.apple.com,DIRECT
+DOMAIN,dejavu.apple.com,DIRECT
+DOMAIN,sequoia.apple.com,DIRECT
+DOMAIN-SUFFIX,smoot.apple.com,DIRECT
+
+# Apple Intelligence 区域校验 / PCC 中继 / 匿名令牌：走代理（PROXY = 首页选中的策略组）
+DOMAIN,gspe1-ssl.ls.apple.com,PROXY
+DOMAIN-SUFFIX,issuer.apple.com,PROXY
+DOMAIN-SUFFIX,ropes.apple.com,PROXY
+DOMAIN,mask-api.icloud.com,PROXY
+DOMAIN,mask.icloud.com,PROXY
+DOMAIN,mask-h2.icloud.com,PROXY
+DOMAIN-SUFFIX,app.apple.com,PROXY
+DOMAIN-SUFFIX,apple-relay.apple.com,PROXY
+DOMAIN-SUFFIX,apple-relay.cloudflare.com,PROXY
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com,PROXY
+DOMAIN-SUFFIX,apple-relay.akamaized.net,PROXY
+DOMAIN-SUFFIX,cp4.cloudflare.com,PROXY
+
+# Siri ChatGPT 扩展与视觉智能
+DOMAIN-SUFFIX,openai.com,PROXY
+DOMAIN-SUFFIX,chatgpt.com,PROXY
+DOMAIN-SUFFIX,sora.com,PROXY
+DOMAIN-SUFFIX,oaistatic.com,PROXY
+DOMAIN-SUFFIX,oaiusercontent.com,PROXY
+DOMAIN-SUFFIX,chatgpt.livekit.cloud,PROXY
+DOMAIN,lens.google.com,PROXY
+DOMAIN-SUFFIX,gemini.google.com,PROXY
+DOMAIN,gemini.gstatic.com,PROXY
+DOMAIN,generativelanguage.googleapis.com,PROXY
+DOMAIN-SUFFIX,anthropic.com,PROXY
+DOMAIN-SUFFIX,claude.ai,PROXY
+DOMAIN-SUFFIX,claudeusercontent.com,PROXY

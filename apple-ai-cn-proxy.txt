@@ -1,0 +1,31 @@
+# Apple Intelligence CN - 代理集（PCC 隐私云计算 / 区域校验 / 视觉智能）
+# 来源：Erosion-AppleIntelligence-CN.sgmodule，2026-11-26 拆分为 Loon 规则集
+# 用法：Loon -> 配置 -> 远程规则 添加本文件，policy 选你的代理组（如 Available）
+# 节点要求：支持 UDP/QUIC 的低并发干净美区节点
+# 注意：apple-relay / mask / ropes 解析在 AS714(Apple)，iRingo WeatherKit 那条
+#       AS714+QUIC 的 REJECT-DROP 会掐掉这些连接，要把本规则放在它前面（本地规则或插件层）
+DOMAIN,gspe1-ssl.ls.apple.com
+DOMAIN-SUFFIX,issuer.apple.com
+DOMAIN-SUFFIX,ropes.apple.com
+DOMAIN,mask-api.icloud.com
+DOMAIN,mask.icloud.com
+DOMAIN,mask-h2.icloud.com
+DOMAIN-SUFFIX,app.apple.com
+DOMAIN-SUFFIX,apple-relay.apple.com
+DOMAIN-SUFFIX,apple-relay.cloudflare.com
+DOMAIN-SUFFIX,apple-relay.fastly-edge.com
+DOMAIN-SUFFIX,apple-relay.akamaized.net
+DOMAIN-SUFFIX,cp4.cloudflare.com
+DOMAIN-SUFFIX,openai.com
+DOMAIN-SUFFIX,chatgpt.com
+DOMAIN-SUFFIX,sora.com
+DOMAIN-SUFFIX,oaistatic.com
+DOMAIN-SUFFIX,oaiusercontent.com
+DOMAIN-SUFFIX,chatgpt.livekit.cloud
+DOMAIN,lens.google.com
+DOMAIN-SUFFIX,gemini.google.com
+DOMAIN,gemini.gstatic.com
+DOMAIN,generativelanguage.googleapis.com
+DOMAIN-SUFFIX,anthropic.com
+DOMAIN-SUFFIX,claude.ai
+DOMAIN-SUFFIX,claudeusercontent.com

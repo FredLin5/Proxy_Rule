@@ -1,0 +1,9 @@
+# Apple Intelligence CN - 直连集（国行 Siri / 来电询问）
+# 来源：Erosion-AppleIntelligence-CN.sgmodule，2026-11-26 拆分为 Loon 规则集
+# 用法：Loon -> 配置 -> 远程规则 添加本文件，policy 选 DIRECT
+# 注意：走真实 IP 直连，别让代理接管，否则国行 Siri 和普通话询问来电原因会失效
+DOMAIN-SUFFIX,guzzoni.apple.com
+DOMAIN-SUFFIX,siri.apple.com
+DOMAIN,dejavu.apple.com
+DOMAIN,sequoia.apple.com
+DOMAIN-SUFFIX,smoot.apple.com
