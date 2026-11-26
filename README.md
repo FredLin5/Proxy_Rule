@@ -10,6 +10,30 @@
 | `apple-ai-cn-direct.txt` | 国行 Siri / 来电询问，5 条 | 远程规则，policy = DIRECT |
 | `apple-ai-cn-proxy.txt` | Apple Intelligence PCC、区域校验、视觉智能，25 条 | 远程规则，policy = Available（或你自己的代理组） |
 | `apple-ai-cn.plugin` | 上面两组打包成 Loon 插件，含策略 | 配置 > 插件，整包订阅 |
+| `custom-direct.txt` | 自定义直连：hw99、ipv6、skland、bbs.hycdn.cn | 远程规则，policy = DIRECT |
+| `custom-proxy.txt` | 自定义代理：asmr.one、duolingo、twimg、bing | 远程规则，policy = Available |
+| `custom-reject-img.txt` | 自定义图片拦截：gamecenter.qq.com、pgdt.gtimg.cn | 远程规则，policy = REJECT-IMG |
+
+## 关于 custom-*
+
+从主配置 `[Rule]` 里搬出来的零散规则，2026-11-26 整理。两条 OR 复合规则已拆成单条，命中结果不变。
+
+有三条规则**留在主配置里没有搬**，别手贱一起搬走：
+
+| 规则 | 为什么留在本地 |
+|---|---|
+| `IP-CIDR6,::/0,DIRECT` | 全局 IPv6 兜底。搬到订阅层后会排在其他订阅规则之间，v6 流量的归属可能变。原来在本地层，压得住所有订阅的 IP 规则 |
+| `GEOIP,cn,DIRECT` | 中国大陆 IP 兜底，同上 |
+| `FINAL,Available` | Loon 的 FINAL 只能写在主配置，不是规则集能表达的东西 |
+
+搬走之后本地 `[Rule]` 只剩这四行（Erosion 那段另算）：
+
+```
+DOMAIN-KEYWORD,hw99,DIRECT        ← 也可以跟着搬进 custom-direct.txt
+IP-CIDR6,::/0,DIRECT
+GEOIP,cn,DIRECT
+FINAL,Available
+```
 
 ## 关于 apple-ai-cn
 
@@ -26,4 +50,7 @@
 https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/apple-ai-cn-direct.txt
 https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/apple-ai-cn-proxy.txt
 https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/apple-ai-cn.plugin
+https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/custom-direct.txt
+https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/custom-proxy.txt
+https://raw.githubusercontent.com/FredLin5/Proxy_Rule/main/custom-reject-img.txt
 ```

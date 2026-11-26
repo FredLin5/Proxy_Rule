@@ -1,0 +1,11 @@
+# 自定义规则 - 代理组
+# 从 Loon 主配置 [Rule] 搬出来，2026-11-26
+# 用法：远程规则，policy = Available（或你的代理组）
+# 原本两条 OR 复合规则已拆成单条，命中结果不变
+DOMAIN-KEYWORD,asmr.one
+DOMAIN-KEYWORD,duolingo
+DOMAIN-SUFFIX,duolingo.cn
+DOMAIN-SUFFIX,duolingo.com
+DOMAIN-SUFFIX,twimg.com
+DOMAIN-KEYWORD,cn.bing.com
+DOMAIN-KEYWORD,www.bing.com
